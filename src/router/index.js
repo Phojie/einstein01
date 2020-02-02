@@ -22,5 +22,22 @@ export default function (/* { store, ssrContext } */) {
     base: process.env.VUE_ROUTER_BASE
   })
 
+  Router.beforeEach((to, from, next) => {
+    // let currentUser = fireAuth.currentUser
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+    if (requiresAuth) {
+      next({
+        path: '/auth',
+        query: {
+          redirect: 'Robert,Raf,Senarlo,Gabriel,Francis,Nickol is on fire'
+        }
+      })
+    } else if (!requiresAuth) {
+      next()
+    } else {
+      next()
+    }
+  })
+
   return Router
 }

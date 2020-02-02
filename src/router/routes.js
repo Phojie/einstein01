@@ -1,10 +1,27 @@
 
 const routes = [
   {
-    path: '/',
+    path: '/auth',
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') }
+    ]
+  },
+  {
+    path: '/myckcm',
+    component: () => import('pages/auth/loginNow.vue')
+  },
+  {
+    path: '/',
+    component: () => import('layouts/studentLayout.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: '',
+        component: () => import('pages/Index.vue')
+      }
     ]
   }
 ]

@@ -47,9 +47,12 @@
         class="q-px-md-xl bg-white text-black"
         style="height:55px"
       >
-        <q-toolbar-title>
-          <strong>Christ the King</strong> College de Maranding
-        </q-toolbar-title>
+        <div class="text-h6">
+          <q-avatar class="q-mr-sm">
+            <img src="/statics/jieIcons/apple-touch-icon-180x180.png" alt="">
+          </q-avatar>
+          <strong>Christ the King</strong> College de Maranding Inc.
+        </div>
         <q-space />
         <q-btn
           class="xs"
@@ -62,14 +65,17 @@
         />
         <q-tabs
           v-model="tab"
-          class="md text-black"
+          class=" md text-black"
         >
           <q-tab
+            class="text-capitalize"
             v-for="(tab, index) in linkTabs"
             :key="index"
             :name="tab.title"
             :label="tab.title"
           />
+          <!-- <q-tab @click="showMyckcm" class="text-capitalize" label="MyCkcm"></q-tab> -->
+          <q-route-tab exact="" to="myckcm" class="text-capitalize" label="Myckcm"></q-route-tab>
         </q-tabs>
       </q-toolbar>
 
@@ -81,8 +87,8 @@
       bordered
       behavior="mobile"
       content-class="bg-grey-2"
-    >
-      <q-list>
+     >
+      <q-list >
         <q-item-label header>Essential Links</q-item-label>
         <q-item
           v-for="(tab, index) in linkTabs"
@@ -121,7 +127,7 @@
           style="background-color:#000000ab"
         >
           <q-carousel-slide :name="1">
-            <q-card>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque iste atque neque consequuntur aliquid, ea impedit voluptate corrupti quasi architecto consequatur eius alias magnam molestiae distinctio, cum, dolorum expedita perspiciatis?</q-card>
+            <!-- <q-card>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque iste atque neque consequuntur aliquid, ea impedit voluptate corrupti quasi architecto consequatur eius alias magnam molestiae distinctio, cum, dolorum expedita perspiciatis?</q-card> -->
           </q-carousel-slide>
           <q-carousel-slide :name="2">test 2</q-carousel-slide>
           <q-carousel-slide :name="3">test 3</q-carousel-slide>
@@ -141,6 +147,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'MyLayout',
   data () {
@@ -176,11 +183,8 @@ export default {
         }
       ]
     }
-  },
-  created () {
-    // console.log(this.$q.dark.isActive)
-    // this.$q.dark.set(true)
   }
+
 }
 </script>
 
